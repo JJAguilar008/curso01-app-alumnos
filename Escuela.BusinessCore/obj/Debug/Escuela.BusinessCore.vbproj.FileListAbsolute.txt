@@ -1,0 +1,12 @@
+C:\Users\PREDATOR\Documents\Visual Studio 2008\Projects\curso01\Escuela.BusinessCore\bin\Debug\Escuela.BusinessCore.dll
+C:\Users\PREDATOR\Documents\Visual Studio 2008\Projects\curso01\Escuela.BusinessCore\bin\Debug\Escuela.BusinessCore.pdb
+C:\Users\PREDATOR\Documents\Visual Studio 2008\Projects\curso01\Escuela.BusinessCore\bin\Debug\Escuela.BusinessCore.xml
+C:\Users\PREDATOR\Documents\Visual Studio 2008\Projects\curso01\Escuela.BusinessCore\bin\Debug\Escuela.Contracts.dll
+C:\Users\PREDATOR\Documents\Visual Studio 2008\Projects\curso01\Escuela.BusinessCore\bin\Debug\Escuela.Contracts.pdb
+C:\Users\PREDATOR\Documents\Visual Studio 2008\Projects\curso01\Escuela.BusinessCore\bin\Debug\Escuela.Contracts.xml
+C:\Users\PREDATOR\Documents\Visual Studio 2008\Projects\curso01\Escuela.BusinessCore\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\PREDATOR\Documents\Visual Studio 2008\Projects\curso01\Escuela.BusinessCore\obj\Debug\Escuela.BusinessCore.Resources.resources
+C:\Users\PREDATOR\Documents\Visual Studio 2008\Projects\curso01\Escuela.BusinessCore\obj\Debug\Escuela.BusinessCore.vbproj.GenerateResource.Cache
+C:\Users\PREDATOR\Documents\Visual Studio 2008\Projects\curso01\Escuela.BusinessCore\obj\Debug\Escuela.BusinessCore.dll
+C:\Users\PREDATOR\Documents\Visual Studio 2008\Projects\curso01\Escuela.BusinessCore\obj\Debug\Escuela.BusinessCore.xml
+C:\Users\PREDATOR\Documents\Visual Studio 2008\Projects\curso01\Escuela.BusinessCore\obj\Debug\Escuela.BusinessCore.pdb

@@ -1,0 +1,9 @@
+C:\Users\PREDATOR\Documents\Visual Studio 2008\Projects\curso01\Escuela.Contracts\bin\Debug\Escuela.Contracts.dll
+C:\Users\PREDATOR\Documents\Visual Studio 2008\Projects\curso01\Escuela.Contracts\bin\Debug\Escuela.Contracts.pdb
+C:\Users\PREDATOR\Documents\Visual Studio 2008\Projects\curso01\Escuela.Contracts\bin\Debug\Escuela.Contracts.xml
+C:\Users\PREDATOR\Documents\Visual Studio 2008\Projects\curso01\Escuela.Contracts\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\PREDATOR\Documents\Visual Studio 2008\Projects\curso01\Escuela.Contracts\obj\Debug\Escuela.Contracts.Resources.resources
+C:\Users\PREDATOR\Documents\Visual Studio 2008\Projects\curso01\Escuela.Contracts\obj\Debug\Escuela.Contracts.vbproj.GenerateResource.Cache
+C:\Users\PREDATOR\Documents\Visual Studio 2008\Projects\curso01\Escuela.Contracts\obj\Debug\Escuela.Contracts.dll
+C:\Users\PREDATOR\Documents\Visual Studio 2008\Projects\curso01\Escuela.Contracts\obj\Debug\Escuela.Contracts.xml
+C:\Users\PREDATOR\Documents\Visual Studio 2008\Projects\curso01\Escuela.Contracts\obj\Debug\Escuela.Contracts.pdb
