@@ -41,7 +41,8 @@ Public Class Form1
     Private Sub btnConsultar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnConsultar.Click
 
         Dim servicio As IAlumno = New AlumnoDomainObjet
-        dgvAlumnos.DataSource = servicio.getAll()
+        dgvAlumnos.DataSource = servicio.getList()
+        dgvAlumnos.Columns("idcarrera").Visible = False
 
     End Sub
 
@@ -77,5 +78,6 @@ Public Class Form1
 
         cbCarrera.ValueMember = "idcarrera"
         cbCarrera.DisplayMember = "nombre"
+
     End Sub
 End Class

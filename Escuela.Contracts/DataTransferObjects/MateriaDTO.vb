@@ -1,6 +1,7 @@
 ﻿Namespace DataTransferObjects
 
     Public Class MateriaDTO
+        Inherits DataTransferObjectBase
 
         Private _idMateria As Integer
         Private _materia As String

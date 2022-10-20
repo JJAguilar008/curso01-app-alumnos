@@ -31,6 +31,7 @@ Partial Class Form3
         Me.cbMateria = New System.Windows.Forms.ComboBox
         Me.btnAgregar = New System.Windows.Forms.Button
         Me.dgvMaterias = New System.Windows.Forms.DataGridView
+        Me.btnGuardar = New System.Windows.Forms.Button
         CType(Me.dgvMaterias, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -109,14 +110,24 @@ Partial Class Form3
         Me.dgvMaterias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvMaterias.Location = New System.Drawing.Point(12, 233)
         Me.dgvMaterias.Name = "dgvMaterias"
-        Me.dgvMaterias.Size = New System.Drawing.Size(290, 150)
+        Me.dgvMaterias.Size = New System.Drawing.Size(429, 150)
         Me.dgvMaterias.TabIndex = 8
+        '
+        'btnGuardar
+        '
+        Me.btnGuardar.Location = New System.Drawing.Point(365, 390)
+        Me.btnGuardar.Name = "btnGuardar"
+        Me.btnGuardar.Size = New System.Drawing.Size(75, 23)
+        Me.btnGuardar.TabIndex = 9
+        Me.btnGuardar.Text = "Guardar"
+        Me.btnGuardar.UseVisualStyleBackColor = True
         '
         'Form3
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(321, 395)
+        Me.ClientSize = New System.Drawing.Size(453, 423)
+        Me.Controls.Add(Me.btnGuardar)
         Me.Controls.Add(Me.dgvMaterias)
         Me.Controls.Add(Me.btnAgregar)
         Me.Controls.Add(Me.cbMateria)
@@ -142,4 +153,5 @@ Partial Class Form3
     Friend WithEvents cbMateria As System.Windows.Forms.ComboBox
     Friend WithEvents btnAgregar As System.Windows.Forms.Button
     Friend WithEvents dgvMaterias As System.Windows.Forms.DataGridView
+    Friend WithEvents btnGuardar As System.Windows.Forms.Button
 End Class

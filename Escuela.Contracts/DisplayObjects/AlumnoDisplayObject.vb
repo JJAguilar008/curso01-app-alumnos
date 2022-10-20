@@ -1,12 +1,10 @@
-﻿Namespace DataTransferObjects
-
-    Public Class AlumnoDTO
-        Inherits DataTransferObjectBase
-
+﻿Namespace DisplayObjects
+    Public Class AlumnoDisplayObject
         Private _matricula As Integer
         Private _nombre As String
         Private _apellidos As String
-        Private _carrera As Integer
+        Private _idcarrera As Integer
+        Private _carrera As String
         Private _idmateria As Integer
 
         Public Property Matricula() As Integer
@@ -36,23 +34,22 @@
             End Set
         End Property
 
-        Public Property Carrera() As Integer
+        Public Property IdCarrera() As Integer
+            Get
+                Return _idcarrera
+            End Get
+            Set(ByVal value As Integer)
+                _idcarrera = value
+            End Set
+        End Property
+
+        Public Property Carrera() As String
             Get
                 Return _carrera
             End Get
-            Set(ByVal value As Integer)
+            Set(ByVal value As String)
                 _carrera = value
             End Set
         End Property
-
-        Public Property Idmateria() As Integer
-            Get
-                Return _idmateria
-            End Get
-            Set(ByVal value As Integer)
-                _idmateria = value
-            End Set
-        End Property
     End Class
-
 End Namespace
