@@ -1,5 +1,5 @@
 ﻿Public Class DataTransferObjectBase
-    Private _isNew As Boolean
+    Private _isNew As Boolean = True
 
     Public Property IsNew() As Boolean
         Get

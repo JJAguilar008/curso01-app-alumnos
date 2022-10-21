@@ -13,8 +13,7 @@ Namespace DataAccess
         Private Const SP_GETLIST = "spAlumnoGetList"
         Private Const SP_UPDATE = "spAlumnoUpdate"
         Private Const SP_DELETE = "spAlumnoDelete"
-        Private Const SP_INSERTMATERIA = "spAlumnomateriaInsert"
-        Private Const SP_GETMATERIASBYMATRICULA = "spGetMateriasByMatricula"
+        
 
         Public Sub guardar(ByVal alumno As AlumnoDTO)
 
@@ -30,15 +29,28 @@ Namespace DataAccess
 
             addParameter(AlumnoEnum.matricula.ToString, alumno.Matricula)
 
-            addOutputParameter(AlumnoEnum.nombre.ToString, "", 50)
-            addOutputParameter(AlumnoEnum.apellidos.ToString, "", 100)
-            addOutputParameter(AlumnoEnum.carrera.ToString, 0)
-            Execute(SP_GETBYMATRICULA)
+            'addOutputParameter(AlumnoEnum.nombre.ToString, "", 50)
+            'addOutputParameter(AlumnoEnum.apellidos.ToString, "", 100)
+            'addOutputParameter(AlumnoEnum.carrera.ToString, 0)
+            'Execute(SP_GETBYMATRICULA)
 
-            alumno.Nombre = getParameter(AlumnoEnum.nombre.ToString)
-            alumno.Apellidos = getParameter(AlumnoEnum.apellidos.ToString)
+            Dim dt As DataTable = New DataTable
+            dt = ExecuteResultSet(SP_GETBYMATRICULA)
 
-            alumno.Carrera = IIf(getParameter(AlumnoEnum.carrera.ToString) Is DBNull.Value, 1, getParameter(AlumnoEnum.carrera.ToString))
+            If dt.Rows.Count = 0 Then
+                alumno.IsNew = True
+            Else
+                alumno.IsNew = False
+                alumno.Nombre = CStr(dt.Rows(0)(AlumnoEnum.nombre.ToString))
+                alumno.Apellidos = CStr(dt.Rows(0)(AlumnoEnum.apellidos.ToString))
+                alumno.Carrera = CInt(dt.Rows(0)(AlumnoEnum.idcarrera.ToString))
+            End If
+
+            'alumno.IsNew = IIf(getParameter(AlumnoEnum.nombre.ToString) Is DBNull.Value, True, False)
+            'alumno.Nombre = IIf(getParameter(AlumnoEnum.nombre.ToString) Is DBNull.Value, "", getParameter(AlumnoEnum.nombre.ToString))
+            'alumno.Apellidos = IIf(getParameter(AlumnoEnum.apellidos.ToString) Is DBNull.Value, "", getParameter(AlumnoEnum.apellidos.ToString))
+            'alumno.Carrera = IIf(getParameter(AlumnoEnum.carrera.ToString) Is DBNull.Value, 1, getParameter(AlumnoEnum.carrera.ToString))
+
 
         End Sub
 
@@ -60,28 +72,11 @@ Namespace DataAccess
 
         End Sub
 
-        Public Sub addMateria(ByVal alumnoMateriaDo As AlumnoMateriaDisplayObject)
-
-            addParameter(AlumnoEnum.matricula.ToString, alumnoMateriaDo.Matricula)
-            addParameter(AlumnoEnum.idmateria.ToString, alumnoMateriaDo.IdMateria)
-            Execute(SP_INSERTMATERIA)
-
-        End Sub
-
         Public Function getList() As BindingList(Of AlumnoDisplayObject)
 
             Dim dt As DataTable
             dt = ExecuteResultSet(SP_GETLIST)
             Return AlumnoCreateList(dt)
-
-        End Function
-
-        Public Function getMateriasByMatricula(ByVal id As Integer) As BindingList(Of AlumnoMateriaDisplayObject)
-
-            Dim dt As DataTable = New DataTable()
-            addParameter(AlumnoEnum.matricula.ToString, id)
-            dt = ExecuteResultSet(SP_GETMATERIASBYMATRICULA)
-            Return MateriaCreateList(dt)
 
         End Function
 
@@ -98,21 +93,6 @@ Namespace DataAccess
                 lista.Add(alumnoDO)
             Next
             Return lista
-        End Function
-
-        Private Function MateriaCreateList(ByVal dt As DataTable) As BindingList(Of AlumnoMateriaDisplayObject)
-
-            Dim listaMaterias As New BindingList(Of AlumnoMateriaDisplayObject)
-
-            For Each dr As DataRow In dt.Rows
-                Dim materiaDO As New AlumnoMateriaDisplayObject
-
-                materiaDO.Matricula = CInt(dr(AlumnoEnum.matricula.ToString))
-                materiaDO.IdMateria = CInt(dr(AlumnoEnum.idmateria.ToString))
-                materiaDO.Materia = dr(AlumnoEnum.materia.ToString)
-                listaMaterias.Add(materiaDO)
-            Next
-            Return listaMaterias
         End Function
 
     End Class

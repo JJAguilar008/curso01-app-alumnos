@@ -9,9 +9,6 @@ Namespace Services
         Sub save(ByVal dto As AlumnoDTO)
         Sub update(ByVal dto As AlumnoDTO)
         Sub delete(ByVal id As Integer)
-
-        Function getMateriaByMatricula(ByVal matricula As String) As BindingList(Of AlumnoMateriaDisplayObject)
-        Sub addMateria(ByVal alumnoMateriaDO As AlumnoMateriaDisplayObject)
     End Interface
 End Namespace
 

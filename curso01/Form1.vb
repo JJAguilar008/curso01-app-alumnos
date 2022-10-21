@@ -4,17 +4,25 @@ Imports Escuela.BusinessCore.DomainObjects
 
 
 Public Class Form1
+    Dim alumno As AlumnoDTO = New AlumnoDTO     'SE CREA OBJETO ALUMNO PARA MANTENER LOS DATOS
 
     Private Sub btnAgregar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAgregar.Click
 
-        Dim objAlumno As AlumnoDTO = New AlumnoDTO
-        objAlumno.Matricula = txtMatricula.Text
-        objAlumno.Nombre = txtNombre.Text
-        objAlumno.Apellidos = txtApellido.Text
-        objAlumno.Carrera = cbCarrera.SelectedValue
+        'Dim objAlumno As AlumnoDTO = New AlumnoDTO
+        alumno.Matricula = txtMatricula.Text                'TOMA TODOS LOS VALORES DE LAS CAJAS DE TEXTO PARA INSERTAR
+        alumno.Nombre = txtNombre.Text
+        alumno.Apellidos = txtApellido.Text
+        alumno.Carrera = cbCarrera.SelectedValue
 
-        Dim servicio As IAlumno = New AlumnoDomainObjet
-        servicio.Save(objAlumno)
+        Dim servicio As IAlumno = New AlumnoDomainObjet     'SE CREA EL SERVICIO PARA ACTUALIZAR
+        servicio.save(alumno)                               'SE LLAMA EL METODO SAVE DEL SERVICIO Y SE MANDA EL OBJETO ALUMNO
+
+        btnEliminar.Enabled = False                         'SE DESACTIVAN LOS COMPONENTES DEL FORM PARA DESPUES PODER HACER CAMBIOS
+        txtNombre.Enabled = False
+        txtApellido.Enabled = False
+        cbCarrera.Enabled = False
+        btnAgregar.Enabled = False
+        txtMatricula.Enabled = True
 
     End Sub
 
@@ -48,15 +56,31 @@ Public Class Form1
 
     Private Sub btnBuscar_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnBuscar.Click
 
-        Dim objAlumno As AlumnoDTO = New AlumnoDTO
-        objAlumno.Matricula = CInt(txtMatricula.Text)
 
+        alumno.Matricula = CInt(txtMatricula.Text)
         Dim servicio As IAlumno = New AlumnoDomainObjet
-        servicio.getByMatricula(objAlumno)
+        servicio.getByMatricula(alumno)
 
-        txtNombre.Text = objAlumno.Nombre
-        txtApellido.Text = objAlumno.Apellidos
-        cbCarrera.SelectedValue = objAlumno.Carrera
+
+        If alumno.IsNew Then
+            MessageBox.Show("La matricula no existe")
+        Else
+            txtNombre.Text = alumno.Nombre
+            txtApellido.Text = alumno.Apellidos
+            cbCarrera.SelectedValue = alumno.Carrera
+        End If
+
+
+        'txtNombre.Text = alumno.Nombre
+        'txtApellido.Text = alumno.Apellidos
+        'cbCarrera.SelectedValue = alumno.Carrera
+
+        btnEliminar.Enabled = True                      'AQUI SE HABILITAN LOS COMPONENTES DEL FORM
+        txtNombre.Enabled = True
+        txtApellido.Enabled = True
+        cbCarrera.Enabled = True
+        btnAgregar.Enabled = True
+        txtMatricula.Enabled = False
 
     End Sub
 
@@ -78,6 +102,13 @@ Public Class Form1
 
         cbCarrera.ValueMember = "idcarrera"
         cbCarrera.DisplayMember = "nombre"
+
+        btnActualizar.Enabled = False               'AL INICIAR EL FORM SE DESHABILITAN TODOS LOS COMPONENTES
+        btnEliminar.Enabled = False
+        txtNombre.Enabled = False
+        txtApellido.Enabled = False
+        cbCarrera.Enabled = False
+        btnAgregar.Enabled = False
 
     End Sub
 End Class

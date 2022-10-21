@@ -1,5 +1,7 @@
-﻿Namespace DisplayObjects
-    Public Class AlumnoMateriaDisplayObject
+﻿Namespace DataTransferObjects
+
+    Public Class AlumnoMateriaDTO
+        Inherits DataTransferObjectBase
 
         Private _matricula As Integer
         Private _idmateria As Integer
@@ -31,6 +33,8 @@
                 _materia = value
             End Set
         End Property
+
     End Class
+
 End Namespace
 

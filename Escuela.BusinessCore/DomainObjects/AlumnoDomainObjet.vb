@@ -15,8 +15,15 @@ Namespace DomainObjects
         End Sub
 
         Public Sub save(ByVal dto As AlumnoDTO) Implements IAlumno.save
-            Dim dao As AlumnoDAO = New AlumnoDAO
-            dao.guardar(dto)
+            'Dim dao As AlumnoDAO = New AlumnoDAO
+            'dao.guardar(dto)
+
+            If dto.IsNew Then
+                insert(dto)
+            Else
+                update(dto)
+            End If
+
         End Sub
 
         Public Function getList() As BindingList(Of AlumnoDisplayObject) Implements IAlumno.getList
@@ -34,14 +41,9 @@ Namespace DomainObjects
             dao.actualizar(dto)
         End Sub
 
-        Public Function getMateriaByMatricula(ByVal id As String) As System.ComponentModel.BindingList(Of Contracts.AlumnoMateriaDisplayObject) Implements Contracts.Services.IAlumno.getMateriaByMatricula
+        Public Sub insert(ByVal dto As AlumnoDTO)
             Dim dao As AlumnoDAO = New AlumnoDAO
-            Return dao.getMateriasByMatricula(id)
-        End Function
-
-        Public Sub addMateria(ByVal alumnoMateriaDO As Contracts.AlumnoMateriaDisplayObject) Implements Contracts.Services.IAlumno.addMateria
-            Dim dao As AlumnoDAO = New AlumnoDAO
-            dao.addMateria(alumnoMateriaDO)
+            dao.guardar(dto)
         End Sub
     End Class
 

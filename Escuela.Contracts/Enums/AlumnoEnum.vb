@@ -5,8 +5,6 @@
         apellidos
         idcarrera
         carrera
-        idmateria
-        materia
     End Enum
 End Namespace
 

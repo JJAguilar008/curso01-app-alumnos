@@ -62,10 +62,12 @@
   <ItemGroup>
     <Compile Include="DataTransferObjectBase.vb" />
     <Compile Include="DataTransferObjects\AlumnoDTO.vb" />
+    <Compile Include="DataTransferObjects\AlumnoMateriaDTO.vb" />
     <Compile Include="DataTransferObjects\MateriaDTO.vb" />
     <Compile Include="DisplayObjects\AlumnoDisplayObject.vb" />
     <Compile Include="DisplayObjects\AlumnoMateriaDisplayObject.vb" />
     <Compile Include="Enums\AlumnoEnum.vb" />
+    <Compile Include="Enums\MateriaEnum.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -83,7 +85,7 @@
     </Compile>
     <Compile Include="Services\IAlumno.vb" />
     <Compile Include="Services\ICarrera.vb" />
-    <Compile Include="Services\IInscripcion.vb" />
+    <Compile Include="Services\IAlumnoMateria.vb" />
     <Compile Include="Services\IMateria.vb" />
   </ItemGroup>
   <ItemGroup>
